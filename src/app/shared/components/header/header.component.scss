@@ -23,3 +23,18 @@
     color: rgb(252, 126, 9);
     cursor: pointer;
 }
+
+.list-group{
+    display: none;
+}
+
+.nav-item:hover .list-group{
+    display: block;
+}
+
+
+.list-group li{
+    font-size: small;
+    cursor: pointer;
+    font-weight: 500;
+}
