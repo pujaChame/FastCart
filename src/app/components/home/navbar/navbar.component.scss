@@ -1,31 +1,44 @@
-.list-group{
+.list-group {
     display: none;
 }
 
-.nav-item:hover .list-group{
+.nav-item:hover .list-group {
     display: block;
 }
 
 .nav-item .nav-link {
     font-weight: 500;
 }
+
 .nav-item #nav1 {
     font-weight: 500;
 }
+
 .nav-item #nav3 {
     font-weight: 500;
 }
 
-.nav-item #nav1{
+.nav-item #nav1 {
     background-color: rgb(23, 146, 120);
     color: white;
 }
 
-.nav-item #nav3{
+.nav-item #nav3 {
     background-color: rgba(23, 146, 119, 0.205);
     color: rgb(23, 146, 120);
 }
 
-.list-group{
+.list-group {
     cursor: pointer;
+}
+
+.aaa {
+    overflow: hidden;
+    background-color: #8e8e8e;
+    position: sticky;
+    /* Set the navbar to fixed position */
+    top: 0;
+    /* Position the navbar at the top of the page */
+    width: 100%;
+    /* Full width */
 }

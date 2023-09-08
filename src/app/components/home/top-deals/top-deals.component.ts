@@ -30,7 +30,7 @@ export class TopDealsComponent {
         items: 3
       },
       940: {
-        items: 4
+        items: 5
       }
     },
     nav: true
@@ -53,5 +53,12 @@ export class TopDealsComponent {
     (error:any)=>{
       error;
     })
+  }
+
+  setTotalPrice(index:number, qty:any){
+    this.topDealsList[index].w = qty.w;
+    this.topDealsList[index].sp = qty.sp;
+    console.log(qty.dis_val)
+    this.topDealsList[index].dis_val = qty.dis_val;
   }
 }
