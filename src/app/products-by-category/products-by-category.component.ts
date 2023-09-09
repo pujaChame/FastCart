@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
-import { HttpService } from 'src/app/core/services/http.service';
+import { HttpService } from '../core/services/http.service';
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss']
+  selector: 'app-products-by-category',
+  templateUrl: './products-by-category.component.html',
+  styleUrls: ['./products-by-category.component.scss']
 })
-export class NavbarComponent {
+export class ProductsByCategoryComponent {
+
   categoryList : any = [];
 
   constructor(private http:HttpService){

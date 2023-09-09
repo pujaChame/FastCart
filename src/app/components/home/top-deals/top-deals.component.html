@@ -10,10 +10,10 @@
         <ng-container *ngFor="let item of topDealsList; let i = index">
             <ng-template carouselSlide [id]="'i'">
                 <div class="card"
-                    style="width: 16rem; border-color: rgb(23, 146, 120); background-color: rgba(23, 146, 119, 0.19);">
+                    style="width: 13rem; border-color: rgb(23, 146, 120); background-color: rgba(74, 146, 23, 0.19);">
                     <img [src]="item.p_img_url" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title fs-6">{{item.llc_n}}</h5>
+                        <h5 class="card-title" style="font-weight: 500; font-size: small;">{{item.llc_n}}</h5>
 
                         <div class="mb-1">
                             <div class="dropdown-center">
@@ -23,7 +23,7 @@
                                     {{item.w}} - ₹{{item.sp}}
                                 </button>
                                 <ul class="dropdown-menu">
-                                    <li *ngFor="let qty of item.all_prods" (click)="setTotalPrice(i,qty)"><a class="dropdown-item">{{qty.w}} - ₹{{qty.sp}}</a></li>
+                                    <li *ngFor="let qty of item.all_prods" (click)="setTotalPrice(i,qty)"><a class="dropdown-item" style="cursor: pointer; font-size: small;">{{qty.w}} - ₹{{qty.sp}}</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -53,5 +53,7 @@
             </ng-template>
         </ng-container>
     </owl-carousel-o>
-    <div>Some tags after</div>
+    <div class="text-end">
+        <button type="button" class="btn btn-sm text-white" routerLink="/products-by-category" style="background-color: rgb(55, 9, 207);">SHOW MORE</button>
+    </div>
 </div>

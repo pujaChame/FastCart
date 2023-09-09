@@ -36,9 +36,11 @@
     overflow: hidden;
     background-color: #8e8e8e;
     position: sticky;
-    /* Set the navbar to fixed position */
     top: 0;
-    /* Position the navbar at the top of the page */
     width: 100%;
-    /* Full width */
+}
+
+.list-group {
+--bs-list-group-action-hover-color: #050001;
+--bs-list-group-action-hover-bg: rgb(255, 226, 7);
 }

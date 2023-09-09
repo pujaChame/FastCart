@@ -1,0 +1,53 @@
+<div class="container mt-2">
+    <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="https://www.bigbasket.com/media/uploads/banner_images/ZXPL2464-L1-gwf-c-Happy-Chef-Oriental-Sauces-1200x300-25-08-23-all.jpg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="https://www.bigbasket.com/media/uploads/banner_images/ZXPL2184-L1-bcd-c-Fresho-Signature-Cheese-1200x300-25-08-23-all.jpg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="https://www.bigbasket.com/media/uploads/banner_images/ZXPL2448-L1-sbf-c-Tasties-Sugar-Free-Cookies-1200x300-25-08-23-all.jpg" class="d-block w-100" alt="...">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+</div>
+
+<div class="container mt-2">
+    <div class="row">
+        <div class="col-md-3">
+            <h6 class="mt-2">Categories</h6>
+            <div class="list-group" *ngFor="let category of categoryList; let i=index" style='cursor: pointer; border-color: yellow;'>
+                <a class="list-group-item list-group-item-action" aria-current="true">
+                  {{category.top_category.name}}
+                </a>
+                <!-- <a *ngIf="i!==0" class="list-group-item list-group-item-action">
+                    {{category.top_category.name}}
+                </a> -->
+              </div>
+        </div>
+
+        <div class="col-md-3">
+            <h6 class="mt-2">Sub Categories</h6>
+            <div class="list-group" *ngFor="let category of categoryList; let i=index" style='cursor: pointer;'>
+                <a class="list-group-item list-group-item-action" aria-current="true">
+                  {{category.top_category.name}}
+                </a>
+                <!-- <a *ngIf="i!==0" class="list-group-item list-group-item-action">
+                    {{category.top_category.name}}
+                </a> -->
+              </div>
+        </div>
+
+        <div class="col-md-3"></div>
+    </div>
+</div>
