@@ -9,6 +9,8 @@ import { HttpService } from '../core/services/http.service';
 export class ProductsByCategoryComponent {
 
   categoryList : any = [];
+  productList : any = [];
+  selectedCategory : any = "";
 
   constructor(private http:HttpService){
 
@@ -19,7 +21,26 @@ export class ProductsByCategoryComponent {
   }
   getCategory() {
     this.http.getDataFromServer('topcats').subscribe((el:any)=>{
-      this.categoryList = el;
+      this.categoryList = el.map((obj:any)=>obj.top_category.name);
+      this.categoryList.unshift('ALL');
+      console.log(this.categoryList)
+    },
+    (error:any)=>{
+
+    })
+  }
+
+  getSelectedProducts(category:string){
+    const endPoint = "categories?categoryName="+category;
+    this.selectedCategory = category;
+    this.http.getDataFromServer(endPoint).subscribe((el:any)=>{
+      if(el != undefined && el[0] != undefined){
+
+        this.productList = el[0].products[0].product_info.reco_list.products;
+      }
+      else{
+        this.productList = [];
+      }
     },
     (error:any)=>{
 

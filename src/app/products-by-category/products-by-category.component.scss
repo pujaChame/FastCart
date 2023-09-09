@@ -1,7 +1,14 @@
 .list-group {
---bs-list-group-action-hover-color: #f8f9fa;
-    --bs-list-group-action-hover-bg: rgb(23, 146, 120);
+--bs-list-group-action-hover-color: rgb(23, 146, 120);
+    --bs-list-group-action-hover-bg: rgba(23, 146, 119, 0.214);
     font-size: small;
     font-weight: 400;
 }
     
+.list-group-item.active {
+    color: rgb(255, 0, 0) var(--bs-list-group-active-color);
+
+    --bs-list-group-active-bg: rgb(23, 146, 120);
+    --bs-list-group-active-color: rgb(255, 255, 255);
+    --bs-list-group-active-border-color: rgb(23, 146, 120);
+}
