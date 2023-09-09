@@ -1,21 +1,21 @@
 <div class="container">
   <div class="row">
-    <form class="" [formGroup]="signupform">
+    <form class="" [formGroup]="signupform" (ngSubmit)="postsignupdetails()">
       <div class="mb-3">
         <label for="id1" class="form-label">Full Name</label>
         <input type="email" class="form-control" id="id1" formControlName="fullname">
       </div>
       <div class="mb-3">
         <label for="id2" class="form-label">Mobile No.</label>
-        <input type="password" class="form-control" id="id2" formControlName="mobile">
+        <input type="text" class="form-control" id="id2" formControlName="mobile">
       </div>
       <div class="mb-3">
         <label for="id3" class="form-label">Email</label>
-        <input type="password" class="form-control" id="id3" formControlName="email">
+        <input type="text" class="form-control" id="id3" formControlName="email">
       </div>
       <div class="mb-3">
         <label for="id4" class="form-label">Password</label>
-        <input type="password" class="form-control" id="id4" formControlName="password">
+        <input type="text" class="form-control" id="id4" formControlName="password">
       </div>
       <button type="submit" class="btn btn-primary">Save</button>
     </form>

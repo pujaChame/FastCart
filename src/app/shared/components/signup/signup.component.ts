@@ -15,13 +15,28 @@ export class SignupComponent implements OnInit {
 
   }
   ngOnInit(): void {
-    this.fb.group({
+    this. signupform = this.fb.group({
       "fullname":['',[]],
       "mobile":['',[]],
       "email":['',[]],
       "password":['',[]],
+    })  
+  }
+
+  postsignupdetails(){
+    this.http.postdatatoserver('userdetails',this.signupform.value).subscribe((el:any)=>{
+       console.log(el)
+    },
+    (error:any)=>{
+
     })
   }
 
-
 }
+
+
+
+
+
+
+
