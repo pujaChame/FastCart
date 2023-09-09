@@ -1,0 +1,15 @@
+.green {
+    color: green;
+}
+
+.list-group {
+    display: none;
+}
+
+.nav-link:hover .list-group {
+    display: block;
+}
+
+.tex {
+    cursor: pointer;
+}

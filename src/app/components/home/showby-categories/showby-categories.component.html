@@ -1,0 +1,64 @@
+<div class="container pt-2">
+    <div id="carouselExample" class="carousel slide">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="https://www.bigbasket.com/media/customPage/c44f22ef-5a1d-4bb8-822b-bfba74cf9f5c/ac1576b0-33f9-498e-b6c0-e3323ffd1441/c8d57089-0bda-4ed1-946d-3057fe1d72b9/sm-YXTT6585-400_9jan23.jpg"
+                    class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="..." class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="..." class="d-block w-100" alt="...">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="position-sticky top-0">
+                <h6 class="pt-5 text-decoration-underline">Categories</h6>
+                <ul class="list-group" *ngFor="let item of topcatslist1,let i=index">
+                    <li class="list-group-item group" (click)="getname(item)">{{item}}</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-9 pt-5">
+            <div class="row">
+                <div class="col-md-4" *ngFor="let item of productlist;let i=index">
+                    <div class="card" style="width: 15rem;">
+                        <img [src]="item.p_img_url" class="card-img-top p-3" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title fs-6 text-center">{{item.llc_n}}</h5>
+                            <div class="dropdown text-center">
+                                <button class="btn btn-secondary btn-sm dropdown-toggle" type="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    {{item.w}} - {{item.sp}} Rs
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item"
+                                            *ngFor="let qty of item.all_prods">{{qty.w}}-{{qty.sp}}</a></li>
+                                </ul>
+                            </div>
+                            <p class="mt-2 text-center"><span class="fs-12">MRP&nbsp;</span><span
+                                    class="fs-12 text-decoration-line-through">Rs&nbsp;{{item.dis_val}}&nbsp;</span><span>Rs&nbsp;{{item.sp}}</span>
+                            </p>
+                            <p class="mt-0 text-center"><label class="fs-12">Qty</label><input type="text"
+                                    class="mx-1 w-25 qty text-center"><button type="button" class="mx-2 px-3 cart">ADD<i
+                                        class="bi bi-bag ps-2"></i></button></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
