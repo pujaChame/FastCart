@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HttpService } from 'src/app/core/services/http.service';
 
 @Component({
   selector: 'app-header',
@@ -7,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
 
+  constructor(private http:HttpService){
+
+  }
+
+  postLoggedInUsers(){
+    
+  }
 }

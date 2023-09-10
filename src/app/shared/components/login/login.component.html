@@ -1,0 +1,16 @@
+<form [formGroup]="loginForm" (ngSubmit)="signIn()">
+    <div class="mb-2">
+      <label for="id1" class="form-label">Email address</label>
+      <input type="email" class="form-control" id="id1" formControlName="email">
+      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+    </div>
+    <div class="mb-2">
+      <label for="id1=2" class="form-label">Password</label>
+      <input type="password" class="form-control" id="id2" formControlName="password">
+    </div>
+    <div class="mb-2 form-check">
+      <input type="id3" class="form-check-input" id="exampleCheck1">
+      <label class="form-check-label" for="id3">Check me out</label>
+    </div>
+    <button type="submit" class="btn btn-primary">Login</button>
+  </form>

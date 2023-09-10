@@ -16,9 +16,15 @@ export class HttpService {
 
   }
 
+  postDataToServer(endPoint:string, body:any){
+    const url = this.baseUrl+endPoint;
+    return this.http.post(url,body)
+  }
 
   getDataFromServer(endPoint:string){
     const url = this.baseUrl+endPoint;
     return this.http.get(url)
   }
+
+
 }
