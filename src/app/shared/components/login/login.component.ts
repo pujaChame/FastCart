@@ -24,13 +24,14 @@ export class LoginComponent {
   form() {
     this.loginForm = this.fb.group({
       "email" : [],
-      "password" : []
+      "password" : [],
     })
   }
 
   signIn(){
-    this.http.postDataToServer("login",this.loginForm.value).subscribe((el:any)=>{
-      console.log(el);
+    const endPoint = "regUsers?email="+this.loginForm.value.email+"&password="+this.loginForm.value.password
+    this.http.getDataFromServer(endPoint).subscribe((el:any)=>{
+      console.log(el)
     },
     (error:any)=>{
       error;

@@ -13821,7 +13821,18 @@
       "products": []
     }
   ],
-  "sign-up": [],
+  "regUsers": [
+    {
+      "firstName": "Sagar",
+      "lastName": "Rathod",
+      "address": "Ahmednagar",
+      "occupation": "Engineer",
+      "mobile": "9970126098",
+      "email": "sagurathod@gmail.com",
+      "password": "123",
+      "id": 1
+    }
+  ],
   "login": [
     {
       "email": "sagurathod@gmail.com",

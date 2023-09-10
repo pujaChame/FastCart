@@ -1,5 +1,7 @@
 #fastkart{
     cursor: pointer;
+    background-color: white;
+    // border: 1px solid black;
 }
 
 .navbar-nav li{
@@ -47,4 +49,8 @@
 .dropdown-menu[data-bs-popper]{
 
     left: 147px;
+}
+
+#person-btn{
+--bs-btn-padding-y: 0.rem;
 }

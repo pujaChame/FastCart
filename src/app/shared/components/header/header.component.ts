@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { HttpService } from 'src/app/core/services/http.service';
 
 @Component({
@@ -8,11 +9,9 @@ import { HttpService } from 'src/app/core/services/http.service';
 })
 export class HeaderComponent {
 
-  constructor(private http:HttpService){
-
+  constructor(private http: HttpService, private router: Router, private activatedRoute: ActivatedRoute) {
+    console.log(this.router);
+    console.log(this.activatedRoute);
   }
 
-  postLoggedInUsers(){
-    
-  }
 }

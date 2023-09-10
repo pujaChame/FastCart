@@ -26,5 +26,14 @@ export class HttpService {
     return this.http.get(url)
   }
 
+  updateData(endPoint:string, body:any){
+    const url = this.baseUrl+endPoint;
+    return this.http.put(url,body)
+  }
+
+  deleteData(endPoint:string){
+    const url = this.baseUrl;
+    return this.http.delete(url)
+  }
 
 }

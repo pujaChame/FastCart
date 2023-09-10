@@ -9,37 +9,40 @@ import { HttpService } from 'src/app/core/services/http.service';
 })
 export class SignUpComponent {
 
-  registrationForm! : FormGroup;
+  registrationForm!: FormGroup;
 
-  baseUrl : string = "http://localhost:3000/";
+  baseUrl: string = "http://localhost:3000/";
 
-  constructor(private http:HttpService, private fb:FormBuilder){
-    
+  constructor(private http: HttpService, private fb: FormBuilder) {
+
   }
 
-  ngOnInit(){
-    this.form ();
+  ngOnInit() {
+    this.form();
   }
 
   form() {
     this.registrationForm = this.fb.group({
-      "firstName" : ['',Validators.required, Validators.minLength(2), Validators.maxLength(16), Validators.pattern('[a-zA-Z]')],
-      "lastName" : [],
-      "address" : [],
-      "occupation" : [],
-      "mobile" : [],
-      "email" : [],
-      "password" : [],
+      "firstName": ['',[Validators.required]],
+      "lastName": [],
+      "address": [],
+      "occupation": [],
+      "mobile": [],
+      "email": [],
+      "password": [],
     })
   }
 
-  regForm(){
-    this.http.postDataToServer('sign-up',this.registrationForm.value).subscribe((el:any)=>{
+  regForm() {
+    this.http.postDataToServer('regUsers', this.registrationForm.value).subscribe((el: any) => {
       console.log(el);
+      console.log(this.registrationForm.errors)
     },
-    (error:any)=>{
-      error;
-    })
+      (error: any) => {
+        error;
+      })
   }
+
+  
 
 }
