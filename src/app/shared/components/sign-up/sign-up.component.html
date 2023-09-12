@@ -48,5 +48,9 @@
     <label for="id7" class="form-label">Password</label>
     <input type="password" class="form-control" id="id7" formControlName="password">
   </div>
-  <button type="submit" class="btn btn-primary" [disabled]="registrationForm.invalid">Sign Up</button>
+  <!-- <button type="submit" class="btn btn-primary" >Sign Up</button> -->
+  <div class="d-grid gap-2">
+    <button class="btn btn-danger" type="submit" [disabled]="registrationForm.invalid">SIGN UP</button>
+    <button class="btn btn-success" type="button" (click)="login()">LOGIN</button>
+  </div>
 </form>

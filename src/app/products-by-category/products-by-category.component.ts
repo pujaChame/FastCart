@@ -18,7 +18,10 @@ export class ProductsByCategoryComponent {
 
   ngOnInit(){
     this.getCategory();
+    this.getSelectedProducts('ALL')
+
   }
+
   getCategory() {
     this.http.getDataFromServer('topcats').subscribe((el:any)=>{
       this.categoryList = el.map((obj:any)=>obj.top_category.name);

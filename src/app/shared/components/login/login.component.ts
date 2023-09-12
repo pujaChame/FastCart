@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { HttpService } from 'src/app/core/services/http.service';
 // import { FormsModule } from '@angular/forms';
@@ -15,6 +15,12 @@ export class LoginComponent {
 
   constructor(private http:HttpService, private fb:FormBuilder){
 
+  }
+
+  @Output () emitAction : EventEmitter<string> = new EventEmitter();
+
+  signUp(){
+    this.emitAction.emit('Sign-Up');
   }
 
   ngOnInit(){
