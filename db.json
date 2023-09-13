@@ -13831,6 +13831,38 @@
       "email": "sagurathod@gmail.com",
       "password": "123",
       "id": 1
+    },
+    {
+      "firstName": "Sagar",
+      "lastName": "Jawala",
+      "address": "q23q2",
+      "mobile": "09970126098",
+      "email": "sagurathod@gmail.com",
+      "password": "123",
+      "otpEntered": "228490",
+      "id": 2
+    },
+    {
+      "firstName": "asada",
+      "lastName": "adds",
+      "address": "asdads",
+      "mobile": "12313",
+      "email": "ewrw",
+      "password": "ewqw",
+      "otpEntered": "844083",
+      "otpVerified": "false",
+      "id": 3
+    },
+    {
+      "firstName": "Sagar",
+      "lastName": "re",
+      "address": "ee",
+      "mobile": "09999911111",
+      "email": "xyz@gmail.com",
+      "password": "111111",
+      "otpEntered": "963171",
+      "otpVerified": true,
+      "id": 4
     }
   ],
   "login": [

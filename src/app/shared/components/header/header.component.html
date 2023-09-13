@@ -94,13 +94,21 @@
     </div>
 </div>
 
-<div class="modal fade modal-sm" id="id1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade modal-sm" id="id1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" #closeBtn>
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Login</h1>
+            <!-- <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">
+                    <div class="col-md-3">
+                        <button class="border border-white" id="fastkart" routerLink="/home">
+                            <span style="color: rgb(23, 146, 120); font-weight: 700; font-size: xx-large;">Fast</span><span
+                                style="font-weight: 700; font-size: xx-large;">kart</span><span
+                                style="color: rgb(23, 146, 120); font-weight: 700; font-size: xx-large;">.</span>
+                        </button>
+                    </div>
+                </h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
+            </div> -->
             <div class="modal-body">
                 <app-login *ngIf="actionName==='Login'" (emitAction)="getData($event)"></app-login>
                 <app-sign-up *ngIf="actionName==='Sign-Up'" (emitAction)="getData($event)"></app-sign-up>

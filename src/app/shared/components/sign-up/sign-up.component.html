@@ -1,3 +1,15 @@
+<div class="text-center" style="text-align: center!important;
+font-size: x-large;
+font-weight: 500;
+color: rgb(23, 146, 120);">
+  <i class="bi bi-person-fill-add"></i> Sign Up
+  <hr>
+</div>
+
+<div class="alert alert-danger" role="alert" *ngIf="otpNotVerified">
+  Pleage enter correct OTP!
+</div>
+
 <form [formGroup]="registrationForm" (ngSubmit)="regForm()">
   <div class="mb-1">
     <label for="id2" class="form-label">First Name</label>
@@ -32,25 +44,46 @@
     <label for="id2" class="form-label">Correspondence Address</label>
     <input type="text" class="form-control" id="id3" formControlName="address">
   </div>
-  <div class="mb-2">
+  <!-- <div class="mb-2">
     <label for="id4" class="form-label">Occupation</label>
     <input type="text" class="form-control" id="id4" formControlName="occupation">
-  </div>
+  </div> -->
   <div class="mb-2">
     <label for="id5" class="form-label">Mobile Number</label>
     <input type="text" class="form-control" id="id5" formControlName="mobile">
   </div>
+
+    <div class="d-grid gap-2 mb-2">
+      <button class="btn btn-outline-danger" type="button" (click)="getOtp()">Send OTP</button>
+    </div>
+
+    <ng-container *ngIf="generateOtp">
+
+    <div class="mb-2">
+      <input type="text" class="form-control" placeholder="Enter OTP" id="id10" formControlName="otpEntered">
+    </div>
+    <div class="d-grid gap-2">
+      <button class="btn btn-outline-danger" type="button" id="id10" (click)="verifyOtp()">Verify OTP</button>
+    </div>
+    <label class="fw-semibold">OTP is valid for : {{otpTimer}} seconds</label>
+  
+  </ng-container>
+
   <div class="mb-2">
     <label for="id6" class="form-label">Email Address</label>
     <input type="email" class="form-control" id="id6" formControlName="email">
   </div>
-  <div class="mb-2">
+  <div class="mb-3">
     <label for="id7" class="form-label">Password</label>
     <input type="password" class="form-control" id="id7" formControlName="password">
   </div>
   <!-- <button type="submit" class="btn btn-primary" >Sign Up</button> -->
   <div class="d-grid gap-2">
-    <button class="btn btn-danger" type="submit" [disabled]="registrationForm.invalid">SIGN UP</button>
-    <button class="btn btn-success" type="button" (click)="login()">LOGIN</button>
+    <button class="btn btn-success" type="submit" [disabled]="registrationForm.invalid">SIGN UP</button>
+    <!-- <button class="btn btn-success" type="button" (click)="login()">LOGIN</button> -->
+    <div class="d-block text-center">
+      Already have an account?
+      <button type="button" class="btn btn-link text-decoration-none" (click)="login()">Login</button>
+    </div>
   </div>
 </form>

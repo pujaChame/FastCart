@@ -8,9 +8,9 @@ export class HttpService {
 
   baseUrl : string  = "http://localhost:3000/";
 
-  // httpHeader : HttpHeaders = new HttpHeaders({
-  //   'content-type' : 'application/json'
-  // })
+  httpHeaders : HttpHeaders = new HttpHeaders({
+    'content-type' : 'application/json'
+  })
 
   constructor(private http:HttpClient) {
 
@@ -18,7 +18,7 @@ export class HttpService {
 
   postDataToServer(endPoint:string, body:any){
     const url = this.baseUrl+endPoint;
-    return this.http.post(url,body)
+    return this.http.post(url,body,{headers:this.httpHeaders})
   }
 
   getDataFromServer(endPoint:string){
@@ -32,7 +32,7 @@ export class HttpService {
   }
 
   deleteData(endPoint:string){
-    const url = this.baseUrl;
+    const url = this.baseUrl+endPoint;
     return this.http.delete(url)
   }
 

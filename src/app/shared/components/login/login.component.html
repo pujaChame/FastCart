@@ -1,18 +1,31 @@
+<div class="text-center" style="text-align: center!important;
+font-size: x-large;
+font-weight: 500;
+color: rgb(23, 146, 120);">
+  <i class="bi bi-person-fill"></i> Login
+  <hr>
+</div>
+
+<div class="alert alert-danger" role="alert" *ngIf="newUser">
+  Pleage register first!
+</div>
+
 <form [formGroup]="loginForm" (ngSubmit)="signIn()">
     <div class="mb-2">
       <label for="id1" class="form-label">Email Address</label>
-      <input type="email" class="form-control" id="id1" formControlName="email">
+      <input type="email" class="form-control inputBg" id="id1" formControlName="email">
     </div>
-    <div class="mb-2">
+    <div class="mb-3">
       <label for="id1=2" class="form-label">Password</label>
       <input type="password" class="form-control" id="id2" formControlName="password">
     </div>
-    <div class="mb-2 form-check">
-      <input type="id3" class="form-check-input" id="exampleCheck1">
-      <label class="form-check-label" for="id3">Check me out</label>
-    </div>
+   
     <div class="d-grid gap-2">
       <button class="btn btn-success" type="submit">LOGIN</button>
-      <button class="btn btn-danger" type="button" (click)="signUp()">SIGN UP</button>
+      <!-- <button class="btn btn-danger" type="button" (click)="signUp()">SIGN UP</button> -->
+      <div class="d-block text-center">
+        Dont't have an account?
+        <button type="button" class="btn btn-link text-decoration-none" (click)="signUp()">Sign Up</button>
+      </div>
     </div>
   </form>
