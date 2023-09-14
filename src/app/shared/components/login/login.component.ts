@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { HttpService } from 'src/app/core/services/http.service';
+import { LoginService } from '../../services/login.service';
 // import { FormsModule } from '@angular/forms';
 // import { ReactiveFormsModule } from '@angular/forms'
 
@@ -14,7 +15,7 @@ export class LoginComponent {
   loginForm! : FormGroup;
   newUser : boolean = false;
 
-  constructor(private http:HttpService, private fb:FormBuilder){
+  constructor(private http:HttpService, private fb:FormBuilder, private loginService:LoginService){
 
   }
 
@@ -41,6 +42,9 @@ export class LoginComponent {
       console.log(el);
       if (el && el.length>0){
         this.newUser = false;
+        const token = "rhkewrewilrlal";
+        localStorage.setItem("token",token);
+        this.loginService.addUser(el[0])
         alert("You have succesfully loogged in!");
         this.emitAction.emit("LOGIN_SUCCESS")
       }

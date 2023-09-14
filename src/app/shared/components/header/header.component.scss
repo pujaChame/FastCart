@@ -40,17 +40,37 @@
     font-weight: 500;
 }
 
+
 // .btn{
 // --bs-btn-line-height: 0.5px;
 // }
 
 
 
-.dropdown-menu[data-bs-popper]{
+.menu1[data-bs-popper]{
 
     left: 147px;
+    background-color: rgb(70, 236, 200);
+}
+
+.menu2[data-bs-popper]{
+
+    left: -84px;
+    background-color: rgb(70, 236, 200);
 }
 
 #person-btn{
 --bs-btn-padding-y: 0.rem;
+}
+
+.profile-menu a{
+font-size: medium;
+cursor: pointer;
+}
+
+.profile-name .head{
+font-size: medium;
+font-weight: 500;
+cursor: pointer;
+color: red;
 }

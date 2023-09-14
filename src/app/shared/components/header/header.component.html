@@ -71,20 +71,33 @@
                                 </li>
                                 <span class="ms-2 p-1">|</span>
                                 <a class="btn btn-white dropdown-toggle fs-4" id="person-btn" href="#" role="button"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    data-bs-toggle="dropdown" aria-expanded="false"
+                                    *ngIf="actionName != 'LOGIN_SUCCESS' ">
                                     <i class="bi bi-person ms-2"></i>
                                 </a>
                                 <li>
-                                    <ul class="dropdown-menu" style="cursor: pointer;">
-                                        <li><a class="dropdown-item fs-6" data-bs-toggle="modal"
-                                                data-bs-target="#id1" (click)="triggerAction('Login')">Login</a></li>
+                                    <ul class="dropdown-menu menu1" style="cursor: pointer;">
+                                        <li><a class="dropdown-item fs-6" data-bs-toggle="modal" data-bs-target="#id1"
+                                                (click)="triggerAction('Login')">Login</a></li>
 
-                                        <li><a class="dropdown-item fs-6" data-bs-toggle="modal"
-                                                data-bs-target="#id1" (click)="triggerAction('Sign-Up')">Sign
+                                        <li><a class="dropdown-item fs-6" data-bs-toggle="modal" data-bs-target="#id1"
+                                                (click)="triggerAction('Sign-Up')">Sign
                                                 Up</a></li>
-                                        <li><a class="dropdown-item fs-6" data-bs-toggle="modal" data-bs-target="#exampleModal">My Profile</a></li>
+                                        <!-- <li><a class="dropdown-item fs-6" data-bs-toggle="modal" data-bs-target="#exampleModal">My Profile</a></li> -->
                                     </ul>
                                 </li>
+                                <li class="nav-item dropdown profile-menu profile-name" *ngIf="actionName == 'LOGIN_SUCCESS'" >
+                                    <a class="nav-link dropdown-toggle head" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        {{userDetailsObj.firstName}}
+                                    </a>
+                                    <ul class="dropdown-menu menu2" aria-labelledby="navbarDropdown">
+                                        <li><a class="dropdown-item" routerLink="/my-account">My Account</a></li>
+                                        <li><a class="dropdown-item">My Orders</a></li>
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                        <li><a class="dropdown-item" (click)="logout()">Logout</a></li>
+                                    </ul>
                             </ul>
                         </div>
                     </nav>
@@ -94,11 +107,11 @@
     </div>
 </div>
 
-<div class="modal fade modal-sm" id="id1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" #closeBtn>
+<div class="modal fade modal-sm" id="id1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <!-- <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">
+            <div class="modal-header">
+                <!-- <h1 class="modal-title fs-5" id="exampleModalLabel">
                     <div class="col-md-3">
                         <button class="border border-white" id="fastkart" routerLink="/home">
                             <span style="color: rgb(23, 146, 120); font-weight: 700; font-size: xx-large;">Fast</span><span
@@ -106,9 +119,9 @@
                                 style="color: rgb(23, 146, 120); font-weight: 700; font-size: xx-large;">.</span>
                         </button>
                     </div>
-                </h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div> -->
+                </h1> -->
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" #closeBtn></button>
+            </div>
             <div class="modal-body">
                 <app-login *ngIf="actionName==='Login'" (emitAction)="getData($event)"></app-login>
                 <app-sign-up *ngIf="actionName==='Sign-Up'" (emitAction)="getData($event)"></app-sign-up>

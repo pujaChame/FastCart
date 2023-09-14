@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { ProductsByCategoryComponent } from './products-by-category/products-by-category.component';
+import { MyAccountComponent } from './components/my-account/my-account.component';
 
 @NgModule({
     declarations: [
@@ -21,7 +22,8 @@ import { ProductsByCategoryComponent } from './products-by-category/products-by-
         AboutComponent,
         NavbarComponent,
         TopDealsComponent,
-        ProductsByCategoryComponent
+        ProductsByCategoryComponent,
+        MyAccountComponent
     ],
     providers: [],
     bootstrap: [AppComponent],
