@@ -1,23 +1,58 @@
 <div class="container">
   <div class="row">
     <form class="" [formGroup]="signupform" (ngSubmit)="postsignupdetails()">
+      <div class="alert alert-warning" role="alert" *ngIf="otpverified == true">
+        Check OTP & try again!
+      </div>
       <div class="mb-3">
         <label for="id1" class="form-label">Full Name</label>
-        <input type="email" class="form-control" id="id1" formControlName="fullname">
+        <input type="text" class="form-control" id="id1" formControlName="fullname">
+        <div *ngIf="signupform.controls['fullname'].invalid && signupform.controls['fullname'].touched">
+          <div class="invalid-feedback d-block" *ngIf="signupform.controls['fullname'].errors?.['required']">
+            This is required filed.
+          </div>
+          <div class="invalid-feedback d-block" *ngIf="signupform.controls['fullname'].errors?.['minlength']">
+            Minimum 2 letters are required.
+          </div>
+          <div class="invalid-feedback d-block" *ngIf="signupform.controls['fullname'].errors?.['pattern']">
+            Only alphabets are allowed.
+          </div>
+        </div>
       </div>
-      <div class="mb-3">
-        <label for="id2" class="form-label">Mobile No.</label>
-        <input type="text" class="form-control" id="id2" formControlName="mobile">
+      <label for="button-addon2" class="form-label">Mobile Number</label>
+      <div class="input-group mb-3">
+        <input type="text" class="form-control"  aria-describedby="button-addon2" formControlName="mobile">
+        <button class="btn btn-outline-secondary" type="button" id="button-addon2" (click)="otp()">Get OTP</button>
       </div>
+        <div class="margin" *ngIf="signupform.controls['mobile'].invalid && signupform.controls['mobile'].touched">
+          <div class="invalid-feedback d-block" *ngIf="signupform.controls['mobile'].errors?.['required']">
+            This is required filed.
+          </div>
+          <div class="invalid-feedback d-block" *ngIf="signupform.controls['mobile'].errors?.['maxlength']">
+            Maximum 10 Numbers are required.
+          </div>
+          <div class="invalid-feedback d-block" *ngIf="signupform.controls['mobile'].errors?.['pattern']">
+            Only Numbers are allowed.
+          </div>
+        </div>
+        <ng-container *ngIf="otpflag==true">
+          <label for="id5" class="form-label">Entre OTP</label>
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" id="id7" formControlName="otpenterd">
+            <button class="btn btn-outline-secondary" type="button" id="id7" (click)="verified()">Verify OTP</button>
+          </div>
+          <label class="fw-semibold">OTP is Valid for : {{timerotp}}</label>
+        </ng-container>
       <div class="mb-3">
         <label for="id3" class="form-label">Email</label>
         <input type="text" class="form-control" id="id3" formControlName="email">
       </div>
       <div class="mb-3">
         <label for="id4" class="form-label">Password</label>
-        <input type="text" class="form-control" id="id4" formControlName="password">
+        <input type="password" class="form-control" id="id4" formControlName="password">
       </div>
-      <button type="submit" class="btn btn-primary">Save</button>
+      <button type="submit" class="btn btn-primary" [disabled]="signupform.invalid">Save</button>&nbsp;
+      <button type="button" class="btn btn-primary" (click)="login()">Log In</button>
     </form>
   </div>
 </div>

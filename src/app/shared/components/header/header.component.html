@@ -1,105 +1,104 @@
-<div class="container-fluid">
-    <div class="row mb-2 bg-success text-white">
-        <div class="col-3 text-center p-2">
-            <p>Entre Adress here</p>
-        </div>
-        <div class="col-6 text-center p-2">
-            <marquee direction="up" scrollamount="2">
-                This is a sample scrolling text that has scrolls in the upper direction.
-            </marquee>
-        </div>
-        <div class="col-3">
-            <ul class="nav">
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="#">Active</a>
-                </li>
-                <span class="p-2">|</span>
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="#">Link</a>
-                </li>
-            </ul>
+<div class="sticky-top">
+    <div class="container-fluid">
+        <div class="row mb-2 bg-success text-white">
+            <div class="col-3 text-center p-2">
+                <p>Entre Adress here</p>
+            </div>
+            <div class="col-6 text-center p-2">
+                <marquee direction="up" scrollamount="2">
+                    This is a sample scrolling text that has scrolls in the upper direction.
+                </marquee>
+            </div>
+            <div class="col-3">
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#">Active</a>
+                    </li>
+                    <span class="p-2">|</span>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#">Link</a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
-</div>
-<div class="container">
-    <div class="row">
-        <div class="col-md-2 p-2">
-            <h3><span class="green">Fast</span>kart<span class="green">.</span></h3>
-        </div>
-        <div class="col-md-7 d-flex">
-            <div class="col-md-4">
-                <div class="input-group mb-3 pt-2">
-                    <button class="btn btn-outline-secondary"
-                        style="background-color: rgb(217, 217, 217); color: rgb(255, 0, 0);" type="button"
-                        id="button-addon1">
-                        <i class="bi bi-geo-alt-fill"></i>
-                    </button>
-                    <input type="text" class="form-control" placeholder="Your Location"
-                        aria-label="Example text with button addon" aria-describedby="button-addon1">
+    <div class="container bg-body text-body">
+        <div class="row">
+            <div class="col-md-2 p-2">
+                <h3><span class="green">Fast</span>kart<span class="green">.</span></h3>
+            </div>
+            <div class="col-md-7 d-flex">
+                <div class="col-md-4">
+                    <div class="input-group mb-3 pt-2">
+                        <button class="btn btn-outline-secondary"
+                            style="background-color: rgb(217, 217, 217); color: rgb(255, 0, 0);" type="button"
+                            id="button-addon1">
+                            <i class="bi bi-geo-alt-fill"></i>
+                        </button>
+                        <input type="text" class="form-control" placeholder="Your Location"
+                            aria-label="Example text with button addon" aria-describedby="button-addon1">
+                    </div>
+                </div>
+                <div class="col-md-8 ms-2">
+                    <div class="input-group mb-3 pt-2">
+                        <input type="text" class="form-control" placeholder="I'm searching for..."
+                            aria-label="Recipient's username" aria-describedby="button-addon2">
+                        <button class="btn btn-outline-secondary" style="background-color: rgb(255, 123, 0); color: white;"
+                            type="button" id="button-addon2">
+                            <i class="bi bi-search"></i>
+                        </button>
+                    </div>
                 </div>
             </div>
-            <div class="col-md-8 ms-2">
-                <div class="input-group mb-3 pt-2">
-                    <input type="text" class="form-control" placeholder="I'm searching for..."
-                        aria-label="Recipient's username" aria-describedby="button-addon2">
-                    <button class="btn btn-outline-secondary" style="background-color: rgb(255, 123, 0); color: white;"
-                        type="button" id="button-addon2">
-                        <i class="bi bi-search"></i>
-                    </button>
-                </div>
+            <div class="col-md-3 p-2">
+                <ul class="nav">
+                    <li class="nav-item ms-2">
+                        <a class="nav-link" href="#"><i class="bi bi-telephone"></i></a>
+                    </li>
+                    <span class="p-2">|</span>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="bi bi-heart"></i></a>
+                    </li>
+                    <span class="p-2">|</span>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="bi bi-bag"></i></a>
+                    </li>
+                    <span class="p-2">|</span>
+                    <li class="nav-item" *ngIf="argumentsvalue != 'LOGIN-SUCCESS'">
+                        <a class="nav-link" style="position: absolute; z-index: 1;">
+                            <i class="bi bi-person"></i>
+                            <ul class="list-group tex text-center">
+                                <li class="list-group-item"><a href="#" data-bs-toggle="modal" data-bs-target="#id1" (click)="arguments('Log-In')">Log In</a></li>
+                                <li class="list-group-item"><a href="#" data-bs-toggle="modal" data-bs-target="#id1" (click)="arguments('Sign-Up')">Sign Up</a></li>
+                            </ul>
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown" *ngIf="argumentsvalue == 'LOGIN-SUCCESS'">
+                          <a class="dropdown-toggle position-absolute mt-2" data-bs-toggle="dropdown" aria-expanded="false">
+                            {{userdetailsobj.fullname}}
+                          </a>
+                          <ul class="dropdown-menu">
+                            <li><a class="dropdown-item tex text-center" href="#">My Account</a></li>
+                            <li><a class="dropdown-item tex text-center" href="#">My Orders</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item tex text-center" href="#" (click)="logout()">Logout</a></li>
+                          </ul>
+                    </li>
+                </ul>
             </div>
-        </div>
-        <div class="col-md-3 p-2">
-            <ul class="nav">
-                <li class="nav-item ms-2">
-                    <a class="nav-link" href="#"><i class="bi bi-telephone"></i></a>
-                </li>
-                <span class="p-2">|</span>
-                <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="bi bi-heart"></i></a>
-                </li>
-                <span class="p-2">|</span>
-                <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="bi bi-bag"></i></a>
-                </li>
-                <span class="p-2">|</span>
-                <li class="nav-item">
-                    <a class="nav-link" style="position: absolute; z-index: 1;">
-                        <i class="bi bi-person"></i>
-                        <ul class="list-group tex text-center">
-                            <li class="list-group-item"><a href="#" data-bs-toggle="modal" data-bs-target="#id1">Log In</a></li>
-                            <li class="list-group-item"><a href="#" data-bs-toggle="modal" data-bs-target="#id2">Sign Up</a></li>
-                            <li class="list-group-item">Profile</li>
-                        </ul>
-                    </a>
-                </li>
-            </ul>
         </div>
     </div>
 </div>
 <div class="modal fade" id="id1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Log In</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" #closebtn></button>
+            </div>
+            <div class="modal-body">
+                <app-login *ngIf="argumentsvalue === 'Log-In'" (emitAction)="getData($event)"></app-login>
+                <app-signup *ngIf="argumentsvalue === 'Sign-Up'" (emitAction)="getData($event)"></app-signup>
+            </div>
         </div>
-        <div class="modal-body">
-            <app-login></app-login>
-        </div>
-      </div>
     </div>
-  </div>
-  <div class="modal fade" id="id2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Sign Up</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <app-signup></app-signup>
-        </div>
-      </div>
-    </div>
-  </div>
+</div>

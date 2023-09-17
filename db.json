@@ -13824,9 +13824,11 @@
   "userdetails": [
     {
       "fullname": "Jay Katwate",
-      "mobile": "123",
-      "email": "123",
-      "password": "123",
+      "mobile": "8796859622",
+      "email": "9822jaykatwate@gmail.com",
+      "password": "test",
+      "otpenterd": "669308",
+      "otpverified": true,
       "id": 1
     }
   ]

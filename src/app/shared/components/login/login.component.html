@@ -1,15 +1,19 @@
 <div class="container">
     <div class="row">
       <form class="" [formGroup]="loginform">
-        <div class="mb-3">
-          <label for="uname" class="form-label">User Name</label>
-          <input type="text" class="form-control" id="uname" formControlName="username">
+        <div class="alert alert-warning" role="alert" *ngIf="userexits == true">
+          Check Mobile-Number, Password or Sign-Up first!
         </div>
         <div class="mb-3">
-          <label for="pass" class="form-label">Password</label>
-          <input type="text" class="form-control" id="pass" formControlName="password">
+          <label for="id1" class="form-label">Mobile Number</label>
+          <input type="text" class="form-control" id="id1" formControlName="mobile">
         </div>
-        <button type="submit" class="btn btn-primary">Log In</button>
+        <div class="mb-3">
+          <label for="id2" class="form-label">Password</label>
+          <input type="password" class="form-control" id="id2" formControlName="password">
+        </div>
+        <button type="submit" class="btn btn-primary" (click)="validate()">Submit</button>&nbsp;
+        <button type="button" class="btn btn-primary" (click)="signup()">Sign Up</button>
       </form>
     </div>
   </div>
