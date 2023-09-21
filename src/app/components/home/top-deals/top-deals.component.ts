@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { HttpserviceService } from 'src/app/core/Services/httpservice.service';
+import { CartService } from 'src/app/shared/service/cart.service';
 
 @Component({
   selector: 'app-top-deals',
@@ -34,7 +35,7 @@ export class TopDealsComponent {
   }
 
   Producttopdeals:any=[]
-  constructor(private http:HttpserviceService){
+  constructor(private http:HttpserviceService,private cart:CartService){
 
   }
 
@@ -45,7 +46,11 @@ export class TopDealsComponent {
   gettopdetials() {
     this.http.getDataFromServer('top-deals').subscribe((el:any)=>{
       if(el && el.products && el.products.length > 0){
-        this.Producttopdeals = el.products
+        this.Producttopdeals = el.products;
+        this.Producttopdeals.forEach((el:any)=>{
+          el['quantity'] = 0;
+
+        });
         console.log(el.products)
       }
     },
@@ -59,5 +64,25 @@ export class TopDealsComponent {
     this.Producttopdeals[index].sp = qty.sp
   }
 
+  addtocart(productobj:any){
+    let product = new Product();
+    product.productName=productobj.llc_n;
+    product.selectedweight=productobj.w;
+    product.productqunt=productobj.quantity;
+    product.productPrice=productobj.sp;
+    product.totalprice=productobj.sp * productobj.quantity;
 
+    this.cart.addItemToCart(product);
+
+  }
+
+}
+
+export class Product {
+  productName!:string;
+  productPrice!:number;
+  productqunt!:number;
+  totalprice!:number;
+  discount!:number;
+  selectedweight!:string;
 }

@@ -1,0 +1,92 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <ul class="list-group mt-3">
+                <li class="list-group-item fs-5"><a class="cursor" (click)="name('Personal-Details')">Personal Details</a></li>
+                <li class="list-group-item fs-6"><a class="cursor" (click)="name('Edit-Profile')">- Edit Profile</a></li>
+                <li class="list-group-item fs-6"><a class="cursor">- Delivary Adresses</a></li>
+                <li class="list-group-item fs-6"><a class="cursor">- Email Adresses</a></li>
+            </ul>
+        </div>
+        <div class="col-md-1 mt-3 d-flex" style="height: 200px;">
+            <div class="vr"></div>
+        </div>
+        <div class="col-md-8 mt-3">
+            <div *ngIf="dataname == 'Personal-Details'">
+                <div class="">
+                    <h3>Personal Details</h3>
+                    <hr>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div>
+                            <h4>{{userdetailsobj.fullname}}</h4>
+                            <h6><i class="bi bi-envelope"></i> {{userdetailsobj.email}}</h6>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <h5>Primary delivery address</h5>
+                        <h6>Mobile : +(91) {{userdetailsobj.mobile}}</h6>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="dataname == 'Edit-Profile'">
+                <div class="row">
+                    <form class="" [formGroup]="editform" (submit)="putdata()">
+                      <div class="alert alert-warning" role="alert" *ngIf="otpverified == true">
+                        Check OTP & try again!
+                      </div>
+                      <div class="mb-3">
+                        <label for="id1" class="form-label">Full Name</label>
+                        <input type="text" class="form-control" id="id1" formControlName="fullname">
+                        <div *ngIf="editform.controls['fullname'].invalid && editform.controls['fullname'].touched">
+                          <div class="invalid-feedback d-block" *ngIf="editform.controls['fullname'].errors?.['required']">
+                            This is required filed.
+                          </div>
+                          <div class="invalid-feedback d-block" *ngIf="editform.controls['fullname'].errors?.['minlength']">
+                            Minimum 2 letters are required.
+                          </div>
+                          <div class="invalid-feedback d-block" *ngIf="editform.controls['fullname'].errors?.['pattern']">
+                            Only alphabets are allowed.
+                          </div>
+                        </div>
+                      </div>
+                      <label for="button-addon2" class="form-label">Mobile Number</label>
+                      <div class="input-group mb-3">
+                        <input type="text" class="form-control"  aria-describedby="button-addon2" formControlName="mobile">
+                        <button class="btn btn-outline-secondary" type="button" id="button-addon2" (click)="otp()">Get OTP</button>
+                      </div>
+                        <div class="margin" *ngIf="editform.controls['mobile'].invalid && editform.controls['mobile'].touched">
+                          <div class="invalid-feedback d-block" *ngIf="editform.controls['mobile'].errors?.['required']">
+                            This is required filed.
+                          </div>
+                          <div class="invalid-feedback d-block" *ngIf="editform.controls['mobile'].errors?.['maxlength']">
+                            Maximum 10 Numbers are required.
+                          </div>
+                          <div class="invalid-feedback d-block" *ngIf="editform.controls['mobile'].errors?.['pattern']">
+                            Only Numbers are allowed.
+                          </div>
+                        </div>
+                        <ng-container *ngIf="otpflag==true">
+                          <label for="id5" class="form-label">Entre OTP</label>
+                          <div class="input-group mb-3">
+                            <input type="text" class="form-control" id="id7" formControlName="otpenterd">
+                            <button class="btn btn-outline-secondary" type="button" id="id7" (click)="verified()">Verify OTP</button>
+                          </div>
+                          <label class="fw-semibold">OTP is Valid for : {{timerotp}}</label>
+                        </ng-container>
+                      <div class="mb-3">
+                        <label for="id3" class="form-label">Email</label>
+                        <input type="text" class="form-control" id="id3" formControlName="email">
+                      </div>
+                      <div class="mb-3" *ngIf="password==true">
+                        <label for="id8" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="id8" formControlName="password">
+                      </div>
+                      <button type="submit" class="btn btn-primary">Save</button>&nbsp;
+                    </form>
+                  </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -61,12 +61,15 @@
                     </li>
                     <span class="p-2">|</span>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="bi bi-bag"></i></a>
+                        <a class="nav-link" (click)="route()"><i class="bi bi-bag tex position-relative">
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill text-bg-success">
+                                {{cartcountobj | async}}
+                              </span></i></a>
                     </li>
                     <span class="p-2">|</span>
                     <li class="nav-item" *ngIf="argumentsvalue != 'LOGIN-SUCCESS'">
                         <a class="nav-link" style="position: absolute; z-index: 1;">
-                            <i class="bi bi-person"></i>
+                            <i class="bi bi-person tex"></i>
                             <ul class="list-group tex text-center">
                                 <li class="list-group-item"><a href="#" data-bs-toggle="modal" data-bs-target="#id1" (click)="arguments('Log-In')">Log In</a></li>
                                 <li class="list-group-item"><a href="#" data-bs-toggle="modal" data-bs-target="#id1" (click)="arguments('Sign-Up')">Sign Up</a></li>
@@ -78,7 +81,7 @@
                             {{userdetailsobj.fullname}}
                           </a>
                           <ul class="dropdown-menu">
-                            <li><a class="dropdown-item tex text-center" href="#">My Account</a></li>
+                            <li><a class="dropdown-item tex text-center" href="#" routerLink="/my-account">My Account</a></li>
                             <li><a class="dropdown-item tex text-center" href="#">My Orders</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item tex text-center" href="#" (click)="logout()">Logout</a></li>

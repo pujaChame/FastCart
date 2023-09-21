@@ -12,7 +12,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { ShowbyCategoriesComponent } from './components/home/showby-categories/showby-categories.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { MyAccountComponent } from './components/my-account/my-account.component';
+import { RouterModule } from '@angular/router';
+import { CartComponent } from './components/cart/cart.component';
 
 @NgModule({
     declarations: [
@@ -21,6 +23,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
         NavBarComponent,
         TopDealsComponent,
         ShowbyCategoriesComponent,
+        MyAccountComponent,
+        CartComponent,
         ],
 
     providers: [],
@@ -35,7 +39,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
         BrowserAnimationsModule,
         CarouselModule,
         ReactiveFormsModule,
-        FormsModule
+        FormsModule,
+        RouterModule
     ]
 })
 export class AppModule { }
